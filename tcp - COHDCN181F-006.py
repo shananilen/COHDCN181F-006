@@ -2,7 +2,7 @@ import struct
 from ctypes import *
 
 class TCP(structure):
-    _fields_ = {
+    _fields_ = [
         ("scrport", c_ushort),
         ("destport", c_ushort),
         ("sqno", c_unit32),
@@ -14,7 +14,7 @@ class TCP(structure):
         ("chekcsm" , c_ushort),
         ("pointer", c_ushort)
 
-         }
+    ]
 
 def __new__ (self, socket_buffer = None):
         return self.from_buffer_copy(socket_buffer)
