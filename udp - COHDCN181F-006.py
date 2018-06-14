@@ -2,12 +2,12 @@ import struct
 from ctypes import *
 
 class UDP(structure):
-    _fields_ = {
+    _fields_ = [
         ("srcport", c_ushort),
         ("destport", c_ushort),
         ("length", c_ushort),
         ("checksm", c_ushort)
-        }
+    ]
 
 def __new__(self, socket_buffer = None):
     return self.from_buffer_copy(socket_buffer)
