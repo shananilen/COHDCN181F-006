@@ -2,7 +2,7 @@ import struct
 from ctypes import *
 
 class IP(structure):
-    _fields_ = {
+    _fields_ = [
         ("version" , c_ubyte ,4 ),
         ("ihl" , c_ubyte ,4),
         ("tos" , c_ubyte),
@@ -14,7 +14,7 @@ class IP(structure):
         ("checksum", c_ushort),
         ("src" , c_unit32),
         ("dst", c_unit32)
-        }
+    ]
 
 def __new__ (self,socket_buffer = None ):
          return self.from_buffer_copy(socket_buffer)
