@@ -2,7 +2,7 @@ import struct
 from ctypes import *
 
 class IPv6(structure):
-    _fileds_ = {
+    _fileds_ = [
         ("version" , c_ubyte, 6),
         ("class", c_ubyte),
         ("lable", c_ubyte , 20),
@@ -11,7 +11,7 @@ class IPv6(structure):
         ("hoplimit", c_ubyte),
         ("src", c_unit128),
         ("dst", c_unit128)
-        }
+    ]
 
 def __new__ (self, socket_buffer = None):
     return self.from_buffer_copy(socket_buffer)
